@@ -1,0 +1,119 @@
+      .img-fluid {
+         max-height: 200px;
+         max-width: 200px;
+         height: auto;
+         width: auto; 
+      }
+      .navbar-brand{
+        margin-left:50px !important;
+        margin-right:30px !important;  
+      }
+      .img {
+         max-height: 450px;
+         max-width: 450px;
+         height: auto;
+         width: auto; 
+      }
+     .inner-jumbotron {
+        margin-left:80px !important;
+        margin-right:30px !important;
+        position:relative !important;  
+      }
+      .fl {
+        float: left;
+        padding-left: 20px;
+      }
+	  .search-box {
+	  margin: 30px auto;
+    position:relative;
+    left : 25%;
+    top: 30%;
+	  }
+	  .quick-link {
+		margin: 0px 0 0px 0;
+	  }
+	  
+	  .navbar-brand .navbar-collapse .navbar-nav .nav-item a.nav-link {
+		color: black !important;
+	  }
+	  
+	  .navbar-brand .navbar-collapse .navbar-nav .nav-item a.nav-link:hover {
+		background-color: black !important;
+		color:white !important;
+	  }
+	  
+	  .nav-icn {
+		display: block;
+		margin: 0 auto;
+		text-align: center;
+	  }
+	  i.material-icons {
+		margin: 0 auto;
+	  }
+    h3 {
+       font-family:  -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;;
+         font-size: 24px;
+         font-style: normal;
+         font-variant: normal;
+         font-weight: 500;
+         line-height: 26.4px;
+         padding: 20px 20px 20px 0; 
+    }
+    h4 {
+       font-family:  -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;;
+         font-size: 18px;
+         font-style: normal;
+         font-variant: normal;
+         font-weight: 500;
+         line-height: 26.4px;
+         padding: 10px; 
+         color: black;
+    }
+    a.nav-link.nav-icn:hover {
+      /*border: 1px solid black !important;*/
+      background-color: #FAFAFA !important;
+      color: #212121 !important;
+    }
+    nav.nav {
+      padding: 0px;
+    }
+    .img-fluid {
+       max-height: 250px;
+       max-width: 250px;
+       height: auto;
+       width: auto; 
+    }
+    .jumbotron {
+      height: 300px !important;
+      background-color: #fbfbfb !important;
+      padding-top: 10px !important;
+      margin-left: 120px !important;
+      margin-right: 120px !important;
+    }
+    .flo {
+      float: left;
+      padding-left: 10px;
+    }
+    .title {
+      font-family:  -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;;
+        font-size: 16px;
+        color: #212121;
+    }
+    .matter, .money {
+      font-family:  -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;;
+        font-size: 14px;
+        color: #424242;
+    }
+    .navbar-main {
+      border-bottom:1px solid #E8E8E8; 
+      background-color: white;
+    }
+    .carousel {
+        float: right; padding: 20px !important;
+    }
+    .carousel-inner {
+        height: 250px; width: 250px;
+    }
+    .body {
+      margin-bottom: 80px !important;
+    }

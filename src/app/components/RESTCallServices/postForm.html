@@ -1,0 +1,69 @@
+<div class="marginleft">
+    <div [hidden]="!disp" class="container">
+        <h3>{{title}}</h3>
+        <form #productForm="ngForm" (ngSubmit)="onSubmit(productForm.value)" novalidate>
+            <div class="form-group row">
+                <div class="col-md-3">
+                    <label>Name</label>
+                    <input type="text" name="name" #nameRef #nameModelRef="ngModel" class="form-control" required minlength="6" [(ngModel)]="fname">
+                    <div *ngIf="nameModelRef.errors && nameModelRef.touched" class="alert alert-danger">
+                        <div [hidden]="!nameModelRef.errors.required">Please enter your name</div>
+                        <div [hidden]="!nameModelRef.errors.minlength"> Name length should be minimum 6 characters </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-3">
+                    <label>Category</label>
+                    <select name="category" class="form-control" #categoryRef #categoryModelRef="ngModel" required [(ngModel)]="inrate">
+            <option *ngFor="let option of categoryOptions" [value]="option.name">{{option.name}}</option>
+        </select>
+                    <div *ngIf="categoryModelRef.errors && categoryModelRef.touched" class="alert alert-danger">
+                        Please select a category.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-3">
+                    <label>Price</label>
+                    <input type="number" name="price" #priceRef #priceModelRef="ngModel" class="form-control" required ngModel>
+                    <div *ngIf="priceModelRef.errors && priceModelRef.touched" class="alert alert-danger">
+                        Please enter price.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-3">
+                    <label>Description</label>
+                    <textarea type="text" name="description" class="form-control" #descriptionRef #desriptionModelRef="ngModel" required minlength="6"
+                        ngModel></textarea>
+                    <div *ngIf="desriptionModelRef.errors && desriptionModelRef.touched" class="alert alert-danger">
+                        <div [hidden]="!desriptionModelRef.errors.required">Please enter description.</div>
+                        <div [hidden]="!desriptionModelRef.errors.minlength">Please enter a valid description. </div>
+                    </div>
+                </div>
+            </div>
+
+            <button [disabled]="!productForm.form.valid" type="submit" class="btn btn-primary">ADD PRODUCT</button>
+        </form>
+    </div>
+
+
+</div>
+
+
+<div [hidden]="disp" class="container">
+    <div class="jumbotron">
+        <h1>
+            Please Login to post Advertisement
+        </h1>
+        <br><br>
+        <h5>
+            Enjoy a variety of add on's when you log in!
+        </h5>
+        <h5>
+            Access the View any Ad unlimited.
+            Join. And Enjoy.
+        </h5>
+    </div>
+</div>

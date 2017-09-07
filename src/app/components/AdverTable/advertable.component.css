@@ -1,0 +1,14 @@
+ .td:nth-last-child(-n+2) {
+    float: right;
+}
+
+h4 {
+       font-family:  -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;;
+         font-size: 18px;
+         font-style: normal;
+         font-variant: normal;
+         font-weight: 500;
+         line-height: 26.4px;
+         padding: 10px; 
+         color: black;
+    }

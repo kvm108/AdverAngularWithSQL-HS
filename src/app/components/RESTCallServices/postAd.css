@@ -1,0 +1,12 @@
+h3 {
+    color: #424242;
+    font: 24px Arial,sans-serif;
+    font-weight: normal;
+    padding-top: 10px;
+}
+.marginleft {
+    margin-left: 200px !important;
+}
+.jumbotron {
+    margin-top: 50px;
+}

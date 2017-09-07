@@ -1,0 +1,34 @@
+<!--<button (click)="displayAd()">click me</button>-->
+
+<div [hidden]="!authService.userLoggedIn" class="container">
+    <h4>My Posted Advertisements</h4>
+    <div>
+        <!--<div class="col-md-3">
+            <label>Search</label>
+            <input type="text" #search name="search" class="form-control" (keyup)="0" >
+        </div>-->
+        <table class="table table-hover"> <!-- *ngIf="displayAd()?.length > 0"-->
+            <tbody>
+                <tr>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+                <tr *ngFor="let prod of allAdver; let i = index;">
+                    <td>{{prod.name}}</td>
+                    <td>{{prod.category}}</td>
+                    <td>{{prod.title}}</td>
+                    <td>{{prod.description}}</td>
+                    <td>
+                        <button type="submit" class="btn btn-outline-primary" (click)="editObject(prod)">edit</button>
+                        <button type="submit" class="btn btn-outline-danger" (click)="deleteObject(prod)">delete</button>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

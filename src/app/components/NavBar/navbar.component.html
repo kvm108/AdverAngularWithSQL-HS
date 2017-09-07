@@ -1,0 +1,176 @@
+<nav class="navbar navbar-toggleable-md navbar-light sticky-top navbar-main" style="border-bottom:1px solid #E8E8E8; background-color: white;">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+
+    <!-- Navbar -->
+    <a (click)='onClick("")' routerLinkActive="active">
+    <a class="navbar-brand mb-0" ><span><img src="./images/classify.png" height="40px" width="108px"></span></a>
+    </a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <ul class="navbar-nav mr-auto">
+            <li (click)='onClick("")' routerLinkActive="active" class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <!--<li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                Products
+              </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>-->
+            <li (click)='onClick("postAd")' routerLinkActive="active" class="nav-item">
+                <a class="nav-link" [hidden]="!authService.userLoggedIn" style="color:orange">Post Ads <span class="sr-only">(current)</span></a>
+            </li>
+            <li (click)='onClick("adTable")' routerLinkActive="active" class="nav-item">
+                <a class="nav-link" [hidden]="!authService.userLoggedIn">My Posted Ads <span class="sr-only">(current)</span></a>
+            </li>
+             
+
+        </ul>
+        <ul class="navbar-nav navbar-right">
+            <li class="padd" [hidden]="!authService.userLoggedIn">Welcome {{username}}!</li>
+            <li>
+                <button [hidden]="authService.userLoggedIn" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+    Login</button>
+                <button [hidden]="!authService.userLoggedIn" (click)="Logout()" class="btn btn-primary">
+    Logout</button>
+            </li>
+
+        </ul>
+
+    </div>
+
+</nav>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header" style="padding-left: 760px;">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            ×</button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item"><a class="nav-link active" href="#Login" data-toggle="tab">Login</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#Registration" data-toggle="tab">Registration</a></li>
+                        </ul>
+                        <!-- Tab panes -->
+
+
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="Login">
+                                <div *ngIf="edited" class="alert alert-danger box-msg" role="alert">
+                                    <strong>Try again</strong> User name or password incorrect
+                                </div>
+                                <form #productForm="ngForm" (ngSubmit)="onSubmit(productForm.value)" novalidate>
+                                    <div class="form-group row">
+                                        <div class="col-md-6">
+                                            <label>Name</label>
+                                            <input type="text" name="userName" #nameRef #nameModelRef="ngModel" class="form-control" required minlength="3" ngModel>
+                                            <div *ngIf="nameModelRef.errors && nameModelRef.touched" class="alert alert-danger">
+                                                <div [hidden]="!nameModelRef.errors.required">Please enter your name</div>
+                                                <div [hidden]="!nameModelRef.errors.minlength"> Name length should be minimum 3 characters </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-6">
+                                            <label>Password</label>
+                                            <input type="password" name="password" #priceRef #priceModelRef="ngModel" class="form-control" required ngModel>
+                                            <div *ngIf="priceModelRef.errors && priceModelRef.touched" class="alert alert-danger">
+                                                Please enter pass.
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <button [disabled]="!productForm.form.valid" type="submit" class="btn btn-primary">Login</button>
+
+                                </form>
+                            </div>
+                            <div class="tab-pane" id="Registration">
+                                  <div *ngIf="!regSuccess" class="alert alert-danger box-msg" role="alert">
+                                    <strong>Try again</strong> User name taken, try another.
+                                </div>
+                                 <div class="alert alert-success box-msg" [hidden]="success">You have successfully registered!</div>
+                                <form #registerForm="ngForm" (ngSubmit)="onRegister(registerForm.value)" novalidate>
+                                    <div class="form-group row">
+                                        <div class="col-md-6">
+                                            <label>First Name</label>
+                                            <input type="text" name="firstName" #nameRef7 #nameModelRef7="ngModel" class="form-control" required minlength="3" ngModel>
+                                            <div *ngIf="nameModelRef7.errors && nameModelRef7.touched" class="alert alert-danger">
+                                                <div [hidden]="!nameModelRef7.errors.required">Please enter your name</div>
+                                                <div [hidden]="!nameModelRef7.errors.minlength"> Name length should be minimum 3 characters </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-6">
+                                            <label>Last Name</label>
+                                            <input type="text" name="lastName" #nameRef6 #nameModelRef6="ngModel" class="form-control" required minlength="3" ngModel>
+                                            <div *ngIf="nameModelRef6.errors && nameModelRef6.touched" class="alert alert-danger">
+                                                <div [hidden]="!nameModelRef6.errors.required">Please enter your name</div>
+                                                <div [hidden]="!nameModelRef6.errors.minlength"> Name length should be minimum 3 characters </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-6">
+                                            <label>Name</label>
+                                            <input type="text" name="userName" #nameRef5 #nameModelRef5="ngModel" class="form-control" required minlength="3" ngModel>
+                                            <div *ngIf="nameModelRef5.errors && nameModelRef5.touched" class="alert alert-danger">
+                                                <div [hidden]="!nameModelRef5.errors.required">Please enter your name</div>
+                                                <div [hidden]="!nameModelRef5.errors.minlength"> Name length should be minimum 3 characters </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-6">
+                                            <label>Password</label>
+                                            <input type="password" name="password" #priceRef4 #priceModelRef4="ngModel" class="form-control" required ngModel>
+                                            <div *ngIf="priceModelRef4.errors && priceModelRef4.touched" class="alert alert-danger">
+                                                Please enter pass.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-6">
+                                            <label>Email</label>
+                                            <input type="email" name="email" #priceRef3 #priceModelRef3="ngModel" class="form-control" required ngModel>
+                                            <div *ngIf="priceModelRef3.errors && priceModelRef3.touched" class="alert alert-danger">
+                                                Please enter email.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-6">
+                                            <label>Phone</label>
+                                            <input type="number" name="phone" #priceRef2 #priceModelRef2="ngModel" class="form-control" required ngModel>
+                                            <div *ngIf="priceModelRef2.errors && priceModelRef2.touched" class="alert alert-danger">
+                                                Please enter number.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button [disabled]="!registerForm.form.valid" type="submit" class="btn btn-primary">Register</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div id="OR" class="hidden-xs"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
